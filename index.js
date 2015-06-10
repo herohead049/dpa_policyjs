@@ -41,7 +41,7 @@ function sendHtmlText(test) {
     'use strict';
         //cdlib.msgEmail.smtpServer = 'localhost'
         cdlib.msgEmail.htmlData = test;
-        cdlib.msgEmail.subject = "Test";
+        cdlib.msgEmail.subject = dpaArgs.eventName;
         cdlib.msgEmail.to = "craig.david@mt.com";
         cdlib.msgEmail.sendToRabbit();
 
