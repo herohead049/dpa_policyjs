@@ -1,6 +1,4 @@
 var cdlib = require('cdlib');
-
-
 var argv = require('minimist')(process.argv.slice(2));
 
 
@@ -16,7 +14,10 @@ var dpaArgs = {
     count: "",
     sourceView: "",
     sourceNode: "",
-    rule: ""
+    rule: "",
+    toString: function () {
+        return JSON.stringify(this);
+    }
 };
 
 dpaArgs.node = argv._[0];
@@ -34,3 +35,17 @@ dpaArgs.rule = argv._[11];
 
 
 console.log(dpaArgs);
+
+
+function sendHtmlText(test) {
+    'use strict';
+        //cdlib.msgEmail.smtpServer = 'localhost'
+        cdlib.msgEmail.htmlData = test;
+        cdlib.msgEmail.subject = "Test";
+        cdlib.msgEmail.to = "craig.david@mt.com";
+        cdlib.msgEmail.sendToRabbit();
+
+}
+
+sendHtmlText(dpaArgs.toString());
+
