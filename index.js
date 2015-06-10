@@ -1,6 +1,10 @@
+/*jslint nomen: true */
+/*jslint node:true */
+
+"use strict";
+
 var cdlib = require('cdlib');
 var argv = require('minimist')(process.argv.slice(2));
-
 
 var dpaArgs = {
     node: "",
@@ -38,13 +42,12 @@ console.log(dpaArgs);
 
 
 function sendHtmlText(test) {
-    'use strict';
-        //cdlib.msgEmail.smtpServer = 'localhost'
-        cdlib.msgEmail.htmlData = test;
-        cdlib.msgEmail.subject = dpaArgs.eventName;
-        cdlib.msgEmail.to = "craig.david@mt.com";
-        cdlib.msgEmail.sendToRabbit();
 
+        //cdlib.msgEmail.smtpServer = 'localhost'
+    cdlib.msgEmail.htmlData = test;
+    cdlib.msgEmail.subject = dpaArgs.eventName;
+    cdlib.msgEmail.to = "craig.david@mt.com";
+    cdlib.msgEmail.sendToRabbit();
 }
 
 sendHtmlText(dpaArgs.toString());
