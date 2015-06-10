@@ -1,0 +1,9 @@
+{
+  "name": "dpa_policy",
+  "version": "0.0.1",
+  "description": "dpa_policy",
+  "author": "Craig David",
+  "dependencies": {
+    "cdlib": "^1.1.3"
+  }
+}
